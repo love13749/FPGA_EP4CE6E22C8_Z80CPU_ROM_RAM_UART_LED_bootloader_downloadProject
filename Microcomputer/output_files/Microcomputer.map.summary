@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Thu May 14 08:57:05 2026
+Analysis & Synthesis Status : Successful - Thu May 14 18:41:04 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : Microcomputer
 Top-level Entity Name : Microcomputer
 Family : Cyclone IV E
-Total logic elements : 2,276
-    Total combinational functions : 2,124
-    Dedicated logic registers : 456
-Total registers : 456
-Total pins : 12
+Total logic elements : 2,367
+    Total combinational functions : 2,191
+    Dedicated logic registers : 489
+Total registers : 489
+Total pins : 20
 Total virtual pins : 0
 Total memory bits : 98,432
 Embedded Multiplier 9-bit elements : 0

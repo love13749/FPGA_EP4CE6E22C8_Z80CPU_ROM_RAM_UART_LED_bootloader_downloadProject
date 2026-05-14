@@ -22,17 +22,17 @@ library ieee;
 
 entity bufferedUART is
 	port (
-		clk     : in std_logic;
-		n_wr    : in  std_logic;
-		n_rd    : in  std_logic;
-		regSel  : in  std_logic;
+		clk     : in std_logic;   -- 时钟信号
+		n_wr    : in  std_logic;  -- 写入信号
+		n_rd    : in  std_logic;  -- 读取信号
+		regSel  : in  std_logic;  
 		dataIn  : in  std_logic_vector(7 downto 0);
 		dataOut : out std_logic_vector(7 downto 0);
-		n_int   : out std_logic; 
+		n_int   : out std_logic;  -- 中断信号
 		rxClock : in  std_logic; -- 16 x baud rate
 		txClock : in  std_logic; -- 16 x baud rate
-		rxd     : in  std_logic;
-		txd     : out std_logic;
+		rxd     : in  std_logic; -- 接收数据
+		txd     : out std_logic; -- 发送数据
 		n_rts   : out std_logic :='0';
 		n_cts   : in  std_logic; 
 		n_dcd   : in  std_logic

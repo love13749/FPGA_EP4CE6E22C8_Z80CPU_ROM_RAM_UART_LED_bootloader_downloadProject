@@ -17,7 +17,7 @@ int send_project_bin()
     FILE *fp = fopen("D:\\FPGAProject\\MC\\MC\\Z80Project\\Object\\project.bin", "r");
     if (!fp) 
     {
-        printf("Failed to open project.bin!\n");
+        printf("Failed to open project.bin!\n\n");
         return -1;
     }
 
@@ -27,14 +27,14 @@ int send_project_bin()
     {
         if (!WriteFile(hSerial, buffer, bytesRead, &bytesWritten, NULL)) 
         {
-            printf("WriteFile error\n");
+            printf("WriteFile error\n\n");
             fclose(fp);
             return -1;
         }
-        printf("Sent %d bytes\n", bytesWritten);
+        printf("Sent %d bytes\n\n", bytesWritten);
     }
     fclose(fp);
-    printf("File sent successfully!\n");
+    printf("File sent successfully!\n\n");
     return 0;
 }
 
@@ -47,7 +47,7 @@ int main()
                          FILE_ATTRIBUTE_NORMAL, NULL);
     if (hSerial == INVALID_HANDLE_VALUE) 
     {
-        printf("Failed to open COM4!\n");
+        printf("Failed to open COM4!\n\n");
         return 1;
     }
 
@@ -56,7 +56,7 @@ int main()
     dcb.DCBlength = sizeof(DCB);
     if (!GetCommState(hSerial, &dcb)) 
     {
-        printf("GetCommState failed\n");
+        printf("GetCommState failed\n\n");
         CloseHandle(hSerial);
         return 1;
     }
@@ -66,7 +66,7 @@ int main()
     dcb.StopBits = ONESTOPBIT;
     if (!SetCommState(hSerial, &dcb)) 
     {
-        printf("SetCommState failed\n");
+        printf("SetCommState failed\n\n");
         CloseHandle(hSerial);
         return 1;
     }
@@ -80,7 +80,7 @@ int main()
     timeouts.WriteTotalTimeoutConstant   = 100;
     if (!SetCommTimeouts(hSerial, &timeouts)) 
     {
-        printf("SetCommTimeouts failed\n");
+        printf("SetCommTimeouts failed\n\n");
         CloseHandle(hSerial);
         return 1;
     }
@@ -91,14 +91,14 @@ int main()
         CloseHandle(hSerial);
         return 1;
     }
-    printf("Now monitoring COM4...\n");
+    printf("Now monitoring COM4...\n\n");
     printf("Press ESC to exit, Ctrl+D to re-download project.bin.\n\n");
 
     // 5. 获取控制台输入句柄
     HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
     if (hStdin == INVALID_HANDLE_VALUE) 
     {
-        printf("Failed to get stdin handle\n");
+        printf("Failed to get stdin handle\n\n");
         CloseHandle(hSerial);
         return 1;
     }
@@ -143,9 +143,9 @@ int main()
                 if (vk == 0x44 &&
                     (ctrlState & (LEFT_CTRL_PRESSED | RIGHT_CTRL_PRESSED))) 
                 {
-                    printf("\nCtrl+D pressed: re-downloading project.bin...\n");
+                    printf("\nCtrl+D pressed: re-downloading project.bin...\n\n");
                     if (send_project_bin() != 0)
-                        printf("Re-download failed!\n");
+                        printf("Re-download failed!\n\n");
                 }
             }
         }

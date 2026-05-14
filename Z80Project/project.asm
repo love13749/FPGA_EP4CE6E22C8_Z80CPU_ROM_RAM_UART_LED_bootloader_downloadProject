@@ -12,6 +12,10 @@
 UART_DATA   EQU $81      ; UART 数据端口
 UART_STAT   EQU $80      ; UART 状态端口 (bit0=可读, bit1=可写)
 LED_PORT    EQU $90      ; LED 输出端口
+PWM_CTRL    EQU $84      ; PWM 控制端口
+PWM_PRD     EQU $85      ; PWM 周期端口
+PWM_CCR     EQU $86      ; PWM 占空比端口
+PWM_CNT     EQU $87      ; PWM 计数器端口
 
 ; ============================================================
 ; 程序入口 - 必须从 $2000 开始
@@ -28,19 +32,37 @@ START:
     
     ; --- 主循环：LED流水灯 + 串口输出 ---
     LD A, $01            ; 初始 LED 值 (bit0亮)
-    
+    LD B, 0FFH            ; 初始占空比为0%
+
 MAIN_LOOP:
+    ; PWM输出
+    push AF
+    LD A, 00H
+    OUT (PWM_CTRL), A
+    LD A, 0FFH
+    OUT (PWM_PRD), A
+    LD A, B
+    OUT (PWM_CCR), A
+    LD A, 01H
+    OUT (PWM_CTRL), A
+
+    LD A, B
+    CP 0FFH
+    JR NZ, _B_INCREASE   ; 如果占空比未到最大值
+    LD B, 00            ; 重置占空比为0%
+_B_INCREASE:
+    INC B                ; 增加占空比
+
+    CALL SEND_HEX
+    LD A, ' '
+    CALL UART_PUTCHAR
+
+    pop AF
+
     ; 输出LED
     CPL                  ; A值每位取反
     OUT (LED_PORT), A
     CPL                  ; 恢复A值
-
-    ; 发送当前LED状态到串口
-    PUSH AF
-    CALL SEND_HEX
-    LD A, ' '
-    CALL UART_PUTCHAR
-    POP AF
     
     ; 延时
     CALL DELAY
@@ -129,7 +151,7 @@ DELAY:
     PUSH BC
     LD B, $FF
 _DELAY_OUTER:
-    LD C, $FF
+    LD C, 0DFH
 _DELAY_INNER:
     DEC C
     JR NZ, _DELAY_INNER

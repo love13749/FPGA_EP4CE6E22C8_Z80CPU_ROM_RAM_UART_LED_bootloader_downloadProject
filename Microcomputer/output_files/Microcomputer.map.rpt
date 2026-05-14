@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Microcomputer
-Thu May 14 08:57:05 2026
+Thu May 14 18:41:04 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -65,16 +65,16 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 14 08:57:05 2026           ;
+; Analysis & Synthesis Status        ; Successful - Thu May 14 18:41:04 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Microcomputer                                   ;
 ; Top-level Entity Name              ; Microcomputer                                   ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 2,276                                           ;
-;     Total combinational functions  ; 2,124                                           ;
-;     Dedicated logic registers      ; 456                                             ;
-; Total registers                    ; 456                                             ;
-; Total pins                         ; 12                                              ;
+; Total logic elements               ; 2,367                                           ;
+;     Total combinational functions  ; 2,191                                           ;
+;     Dedicated logic registers      ; 489                                             ;
+; Total registers                    ; 489                                             ;
+; Total pins                         ; 20                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 98,432                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -177,19 +177,16 @@ on the Quartus Prime software download page.
 ; Number detected on machine ; 18          ;
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 14          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processor 8            ;   0.0%      ;
-;     Processors 9-14        ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-14        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -209,6 +206,7 @@ on the Quartus Prime software download page.
 ; Microcomputer.vhd                     ; yes             ; User VHDL File                         ; D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd                         ;         ;
 ; ../ROMS/Z80/Z80_BASIC_ROM.vhd         ; yes             ; User Wizard-Generated File             ; D:/FPGAProject/MC/MC/ROMS/Z80/Z80_BASIC_ROM.vhd                              ;         ;
 ; InternalRam4K.vhd                     ; yes             ; User Wizard-Generated File             ; D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd                         ;         ;
+; ../Components/PWM/PWM.vhd             ; yes             ; User VHDL File                         ; D:/FPGAProject/MC/MC/Components/PWM/PWM.vhd                                  ;         ;
 ; altsyncram.tdf                        ; yes             ; Megafunction                           ; e:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc                 ; yes             ; Megafunction                           ; e:/altera_lite/25.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                           ; yes             ; Megafunction                           ; e:/altera_lite/25.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -230,31 +228,31 @@ on the Quartus Prime software download page.
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 2,276    ;
+; Estimated Total logic elements              ; 2,367    ;
 ;                                             ;          ;
-; Total combinational functions               ; 2124     ;
+; Total combinational functions               ; 2191     ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 1438     ;
-;     -- 3 input functions                    ; 434      ;
-;     -- <=2 input functions                  ; 252      ;
+;     -- 4 input functions                    ; 1473     ;
+;     -- 3 input functions                    ; 449      ;
+;     -- <=2 input functions                  ; 269      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 1951     ;
-;     -- arithmetic mode                      ; 173      ;
+;     -- normal mode                          ; 2004     ;
+;     -- arithmetic mode                      ; 187      ;
 ;                                             ;          ;
-; Total registers                             ; 456      ;
-;     -- Dedicated logic registers            ; 456      ;
+; Total registers                             ; 489      ;
+;     -- Dedicated logic registers            ; 489      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
-; I/O pins                                    ; 12       ;
+; I/O pins                                    ; 20       ;
 ; Total memory bits                           ; 98432    ;
 ;                                             ;          ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; cpuClock ;
 ; Maximum fan-out                             ; 346      ;
-; Total fan-out                               ; 9381     ;
-; Average fan-out                             ; 3.57     ;
+; Total fan-out                               ; 9721     ;
+; Average fan-out                             ; 3.54     ;
 +---------------------------------------------+----------+
 
 
@@ -263,20 +261,21 @@ on the Quartus Prime software download page.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                              ; Entity Name     ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |Microcomputer                            ; 2124 (48)           ; 456 (19)                  ; 98432       ; 0            ; 0       ; 0         ; 12   ; 0            ; |Microcomputer                                                                                   ; Microcomputer   ; work         ;
+; |Microcomputer                            ; 2191 (77)           ; 489 (19)                  ; 98432       ; 0            ; 0       ; 0         ; 20   ; 0            ; |Microcomputer                                                                                   ; Microcomputer   ; work         ;
 ;    |InternalRam4K:ram1|                   ; 0 (0)               ; 0 (0)                     ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|InternalRam4K:ram1                                                                ; InternalRam4K   ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|InternalRam4K:ram1|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_12q3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|InternalRam4K:ram1|altsyncram:altsyncram_component|altsyncram_12q3:auto_generated ; altsyncram_12q3 ; work         ;
-;    |T80s:cpu1|                            ; 1945 (17)           ; 346 (12)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1                                                                         ; T80s            ; work         ;
-;       |T80:u0|                            ; 1928 (810)          ; 334 (206)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0                                                                  ; T80             ; work         ;
-;          |T80_ALU:alu|                    ; 419 (419)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu                                                      ; T80_ALU         ; work         ;
-;          |T80_MCode:mcode|                ; 443 (443)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0|T80_MCode:mcode                                                  ; T80_MCode       ; work         ;
+;    |PWM:io3|                              ; 30 (30)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|PWM:io3                                                                           ; PWM             ; work         ;
+;    |T80s:cpu1|                            ; 1958 (9)            ; 346 (12)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1                                                                         ; T80s            ; work         ;
+;       |T80:u0|                            ; 1949 (815)          ; 334 (206)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0                                                                  ; T80             ; work         ;
+;          |T80_ALU:alu|                    ; 422 (422)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu                                                      ; T80_ALU         ; work         ;
+;          |T80_MCode:mcode|                ; 456 (456)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0|T80_MCode:mcode                                                  ; T80_MCode       ; work         ;
 ;          |T80_Reg:Regs|                   ; 256 (256)           ; 128 (128)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs                                                     ; T80_Reg         ; work         ;
 ;    |Z80_BASIC_ROM:rom1|                   ; 0 (0)               ; 0 (0)                     ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|Z80_BASIC_ROM:rom1                                                                ; Z80_BASIC_ROM   ; work         ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component                                ; altsyncram      ; work         ;
 ;          |altsyncram_apq3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component|altsyncram_apq3:auto_generated ; altsyncram_apq3 ; work         ;
 ;    |aaron:io2|                            ; 4 (4)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|aaron:io2                                                                         ; aaron           ; work         ;
-;    |bufferedUART:io1|                     ; 127 (127)           ; 83 (83)                   ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|bufferedUART:io1                                                                  ; bufferedUART    ; work         ;
+;    |bufferedUART:io1|                     ; 122 (122)           ; 83 (83)                   ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|bufferedUART:io1                                                                  ; bufferedUART    ; work         ;
 ;       |altsyncram:rxBuffer_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|bufferedUART:io1|altsyncram:rxBuffer_rtl_0                                        ; altsyncram      ; work         ;
 ;          |altsyncram_3ce1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 128         ; 0            ; 0       ; 0         ; 0    ; 0            ; |Microcomputer|bufferedUART:io1|altsyncram:rxBuffer_rtl_0|altsyncram_3ce1:auto_generated         ; altsyncram_3ce1 ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------+-----------------+--------------+
@@ -328,23 +327,24 @@ Encoding Type:  One-Hot
 +-----------------+-----------------+-----------------+--------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; T80s:cpu1|T80:u0|OldNMI_n              ; Lost fanout                            ;
-; T80s:cpu1|T80:u0|BusReq_s              ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|INT_s                 ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|BusAck                ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|IntE_FF1              ; Lost fanout                            ;
-; T80s:cpu1|T80:u0|NMI_s                 ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|IntCycle              ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|IStatus[0,1]          ; Lost fanout                            ;
-; T80s:cpu1|T80:u0|NMICycle              ; Stuck at GND due to stuck port data_in ;
-; T80s:cpu1|T80:u0|Auto_Wait_t2          ; Lost fanout                            ;
-; Total Number of Removed Registers = 11 ;                                        ;
-+----------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++----------------------------------------+-----------------------------------------+
+; Register name                          ; Reason for Removal                      ;
++----------------------------------------+-----------------------------------------+
+; T80s:cpu1|T80:u0|OldNMI_n              ; Lost fanout                             ;
+; T80s:cpu1|T80:u0|BusReq_s              ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|INT_s                 ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|BusAck                ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|IntE_FF1              ; Lost fanout                             ;
+; T80s:cpu1|T80:u0|NMI_s                 ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|IntCycle              ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|IStatus[0,1]          ; Lost fanout                             ;
+; T80s:cpu1|T80:u0|NMICycle              ; Stuck at GND due to stuck port data_in  ;
+; T80s:cpu1|T80:u0|Auto_Wait_t2          ; Lost fanout                             ;
+; PWM:io3|pwm_out_internal[0..6]         ; Merged with PWM:io3|pwm_out_internal[7] ;
+; Total Number of Removed Registers = 18 ;                                         ;
++----------------------------------------+-----------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -366,12 +366,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 456   ;
-; Number of registers using Synchronous Clear  ; 24    ;
+; Total registers                              ; 489   ;
+; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 211   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 320   ;
+; Number of registers using Clock Enable       ; 352   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -385,7 +385,10 @@ Encoding Type:  One-Hot
 ; aaron:io2|dataOut[3]                    ; 1       ;
 ; aaron:io2|dataOut[5]                    ; 1       ;
 ; aaron:io2|dataOut[7]                    ; 1       ;
-; T80s:cpu1|T80:u0|MCycle[0]              ; 77      ;
+; T80s:cpu1|IORQ_n                        ; 5       ;
+; T80s:cpu1|RD_n                          ; 3       ;
+; T80s:cpu1|WR_n                          ; 5       ;
+; T80s:cpu1|T80:u0|MCycle[0]              ; 80      ;
 ; T80s:cpu1|T80:u0|F[4]                   ; 6       ;
 ; T80s:cpu1|T80:u0|F[1]                   ; 20      ;
 ; T80s:cpu1|T80:u0|F[0]                   ; 14      ;
@@ -393,37 +396,34 @@ Encoding Type:  One-Hot
 ; T80s:cpu1|T80:u0|F[2]                   ; 8       ;
 ; T80s:cpu1|T80:u0|F[7]                   ; 7       ;
 ; T80s:cpu1|T80:u0|SP[0]                  ; 4       ;
-; T80s:cpu1|WR_n                          ; 4       ;
-; T80s:cpu1|IORQ_n                        ; 2       ;
-; T80s:cpu1|RD_n                          ; 2       ;
+; T80s:cpu1|T80:u0|SP[1]                  ; 4       ;
+; T80s:cpu1|T80:u0|SP[2]                  ; 4       ;
+; T80s:cpu1|T80:u0|SP[7]                  ; 4       ;
+; T80s:cpu1|T80:u0|SP[6]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[5]                  ; 4       ;
+; T80s:cpu1|T80:u0|SP[4]                  ; 4       ;
+; T80s:cpu1|T80:u0|SP[3]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[13]                 ; 4       ;
 ; T80s:cpu1|T80:u0|F[5]                   ; 2       ;
 ; T80s:cpu1|T80:u0|ACC[5]                 ; 9       ;
-; T80s:cpu1|T80:u0|SP[1]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[9]                  ; 4       ;
 ; T80s:cpu1|T80:u0|ACC[1]                 ; 7       ;
 ; T80s:cpu1|T80:u0|ACC[2]                 ; 7       ;
-; T80s:cpu1|T80:u0|SP[2]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[10]                 ; 4       ;
 ; T80s:cpu1|T80:u0|ACC[0]                 ; 7       ;
 ; T80s:cpu1|T80:u0|SP[8]                  ; 4       ;
 ; T80s:cpu1|T80:u0|ACC[3]                 ; 9       ;
-; T80s:cpu1|T80:u0|SP[3]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[11]                 ; 4       ;
 ; T80s:cpu1|T80:u0|Fp[4]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Fp[1]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Fp[0]                  ; 1       ;
-; T80s:cpu1|T80:u0|SP[4]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[12]                 ; 4       ;
 ; T80s:cpu1|T80:u0|ACC[4]                 ; 7       ;
 ; T80s:cpu1|T80:u0|ACC[7]                 ; 7       ;
-; T80s:cpu1|T80:u0|SP[7]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[15]                 ; 4       ;
 ; T80s:cpu1|T80:u0|Fp[6]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Fp[2]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Fp[7]                  ; 1       ;
-; T80s:cpu1|T80:u0|SP[6]                  ; 4       ;
 ; T80s:cpu1|T80:u0|SP[14]                 ; 4       ;
 ; T80s:cpu1|T80:u0|ACC[6]                 ; 7       ;
 ; T80s:cpu1|T80:u0|F[3]                   ; 2       ;
@@ -438,7 +438,7 @@ Encoding Type:  One-Hot
 ; T80s:cpu1|T80:u0|Ap[7]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Ap[6]                  ; 1       ;
 ; T80s:cpu1|T80:u0|Fp[3]                  ; 1       ;
-; bufferedUART:io1|rxdFiltered            ; 7       ;
+; bufferedUART:io1|rxdFiltered            ; 6       ;
 ; Total number of inverted registers = 58 ;         ;
 +-----------------------------------------+---------+
 
@@ -450,48 +450,49 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|ALU_Op_r[0]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|RegAddrC[0]           ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|Read_To_Reg_r[0]      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|XY_State[1]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|Read_To_Reg_r[3]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|XY_State[0]           ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|ISet[0]               ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|PWM:io3|CNT[5]                         ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|IR[7]                 ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|MCycle[1]             ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|R[4]                  ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|rxClockCount[0]       ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|TmpAddr[1]            ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|R[2]                  ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|rxClockCount[1]       ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|TmpAddr[2]            ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|TmpAddr[4]            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|TmpAddr[15]           ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|bufferedUART:io1|rxBitCount[0]         ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|bufferedUART:io1|txBitCount[1]         ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|txBuffer[6]           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|DO[5]                 ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 48 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|BusB[0]               ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|BusA[5]               ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|txClockCount[3]       ;
-; 10:1               ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|PC[4]                 ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|PC[8]                 ;
-; 16:1               ; 8 bits    ; 80 LEs        ; 32 LEs               ; 48 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|A[0]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|TmpAddr[14]           ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|bufferedUART:io1|rxBitCount[2]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |Microcomputer|bufferedUART:io1|txBitCount[2]         ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|txBuffer[0]           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|DO[1]                 ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 48 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|BusB[4]               ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|BusA[2]               ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |Microcomputer|bufferedUART:io1|txClockCount[0]       ;
+; 10:1               ; 7 bits    ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|PC[5]                 ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|PC[11]                ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 32 LEs               ; 48 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|A[5]                  ;
 ; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|A[11]                 ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|SP[3]                 ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|SP[8]                 ;
-; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|ACC[0]                ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 12 LEs               ; 10 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|F[5]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|SP[0]                 ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|SP[9]                 ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|ACC[7]                ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 12 LEs               ; 10 LEs                 ; Yes        ; |Microcomputer|T80s:cpu1|T80:u0|F[3]                  ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|Q_t       ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_MCode:mcode|Mux47 ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|DAA_Q[3]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|DAA_Q[2]  ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|Save_Mux[1]           ;
 ; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs|Mux47    ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|Mux12     ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|DAA_Q[5]  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Microcomputer|cpuDataIn[7]                           ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegDIL[4]             ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs|Mux17    ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs|Mux8     ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegAddrA[0]           ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Microcomputer|bufferedUART:io1|Selector34            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|Mux11     ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_ALU:alu|DAA_Q[6]  ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegDIH[2]             ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs|Mux16    ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|T80_Reg:Regs|Mux15    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegAddrA[1]           ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Microcomputer|bufferedUART:io1|Selector35            ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Microcomputer|bufferedUART:io1|Selector12            ;
-; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|Save_Mux[4]           ;
-; 19:1               ; 2 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegWEH                ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|Save_Mux[5]           ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 24 LEs               ; 20 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|Save_Mux[0]           ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; No         ; |Microcomputer|cpuDataIn[1]                           ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 4 LEs                ; 20 LEs                 ; No         ; |Microcomputer|T80s:cpu1|T80:u0|RegWEL                ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Microcomputer|T80s:cpu1|T80:u0|Save_Mux[7]           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
@@ -858,33 +859,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_ff         ; 456                         ;
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 489                         ;
 ;     CLR               ; 56                          ;
 ;     CLR SCLR          ; 6                           ;
 ;     CLR SLD           ; 4                           ;
-;     ENA               ; 169                         ;
+;     ENA               ; 193                         ;
 ;     ENA CLR           ; 124                         ;
 ;     ENA CLR SCLR      ; 6                           ;
 ;     ENA CLR SLD       ; 15                          ;
-;     ENA SCLR          ; 6                           ;
+;     ENA SCLR          ; 14                          ;
 ;     SCLR              ; 6                           ;
 ;     SLD               ; 1                           ;
-;     plain             ; 63                          ;
-; cycloneiii_lcell_comb ; 2128                        ;
-;     arith             ; 173                         ;
-;         2 data inputs ; 103                         ;
-;         3 data inputs ; 70                          ;
-;     normal            ; 1955                        ;
+;     plain             ; 64                          ;
+; cycloneiii_lcell_comb ; 2195                        ;
+;     arith             ; 187                         ;
+;         2 data inputs ; 110                         ;
+;         3 data inputs ; 77                          ;
+;     normal            ; 2008                        ;
 ;         0 data inputs ; 3                           ;
-;         1 data inputs ; 39                          ;
-;         2 data inputs ; 111                         ;
-;         3 data inputs ; 364                         ;
-;         4 data inputs ; 1438                        ;
+;         1 data inputs ; 40                          ;
+;         2 data inputs ; 120                         ;
+;         3 data inputs ; 372                         ;
+;         4 data inputs ; 1473                        ;
 ; cycloneiii_ram_block  ; 24                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.30                       ;
-; Average LUT depth     ; 9.06                        ;
+; Max LUT depth         ; 18.50                       ;
+; Average LUT depth     ; 9.01                        ;
 +-----------------------+-----------------------------+
 
 
@@ -893,7 +894,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:16     ;
+; Top            ; 00:00:17     ;
 +----------------+--------------+
 
 
@@ -903,7 +904,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Thu May 14 08:56:34 2026
+    Info: Processing started: Thu May 14 18:40:33 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Microcomputer -c Microcomputer
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -931,7 +932,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /fpgapr
     Info (12022): Found design unit 1: bufferedUART-rtl File: D:/FPGAProject/MC/MC/Components/UART/bufferedUART.vhd Line: 42
     Info (12023): Found entity 1: bufferedUART File: D:/FPGAProject/MC/MC/Components/UART/bufferedUART.vhd Line: 23
 Info (12021): Found 2 design units, including 1 entities, in source file microcomputer.vhd
-    Info (12022): Found design unit 1: Microcomputer-struct File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 16
+    Info (12022): Found design unit 1: Microcomputer-struct File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 17
     Info (12023): Found entity 1: Microcomputer File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /fpgaproject/mc/mc/roms/z80/z80_basic_rom.vhd
     Info (12022): Found design unit 1: z80_basic_rom-SYN File: D:/FPGAProject/MC/MC/ROMS/Z80/Z80_BASIC_ROM.vhd Line: 53
@@ -939,15 +940,18 @@ Info (12021): Found 2 design units, including 1 entities, in source file /fpgapr
 Info (12021): Found 2 design units, including 1 entities, in source file internalram4k.vhd
     Info (12022): Found design unit 1: internalram4k-SYN File: D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd Line: 55
     Info (12023): Found entity 1: InternalRam4K File: D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file /fpgaproject/mc/mc/components/pwm/pwm.vhd
+    Info (12022): Found design unit 1: PWM-rtl File: D:/FPGAProject/MC/MC/Components/PWM/PWM.vhd Line: 19
+    Info (12023): Found entity 1: PWM File: D:/FPGAProject/MC/MC/Components/PWM/PWM.vhd Line: 6
 Info (12127): Elaborating entity "Microcomputer" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Microcomputer.vhd(30): object "n_memRD" assigned a value but never read File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 30
-Warning (10036): Verilog HDL or VHDL warning at Microcomputer.vhd(38): object "n_int1" assigned a value but never read File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 38
-Info (12128): Elaborating entity "T80s" for hierarchy "T80s:cpu1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 54
+Warning (10036): Verilog HDL or VHDL warning at Microcomputer.vhd(32): object "n_memRD" assigned a value but never read File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 32
+Warning (10036): Verilog HDL or VHDL warning at Microcomputer.vhd(40): object "n_int1" assigned a value but never read File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 40
+Info (12128): Elaborating entity "T80s" for hierarchy "T80s:cpu1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 57
 Info (12128): Elaborating entity "T80" for hierarchy "T80s:cpu1|T80:u0" File: D:/FPGAProject/MC/MC/Components/Z80/T80s.vhd Line: 115
 Info (12128): Elaborating entity "T80_MCode" for hierarchy "T80s:cpu1|T80:u0|T80_MCode:mcode" File: D:/FPGAProject/MC/MC/Components/Z80/T80.vhd Line: 244
 Info (12128): Elaborating entity "T80_ALU" for hierarchy "T80s:cpu1|T80:u0|T80_ALU:alu" File: D:/FPGAProject/MC/MC/Components/Z80/T80.vhd Line: 309
 Info (12128): Elaborating entity "T80_Reg" for hierarchy "T80s:cpu1|T80:u0|T80_Reg:Regs" File: D:/FPGAProject/MC/MC/Components/Z80/T80.vhd Line: 819
-Info (12128): Elaborating entity "Z80_BASIC_ROM" for hierarchy "Z80_BASIC_ROM:rom1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 71
+Info (12128): Elaborating entity "Z80_BASIC_ROM" for hierarchy "Z80_BASIC_ROM:rom1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 74
 Info (12128): Elaborating entity "altsyncram" for hierarchy "Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component" File: D:/FPGAProject/MC/MC/ROMS/Z80/Z80_BASIC_ROM.vhd Line: 60
 Info (12130): Elaborated megafunction instantiation "Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component" File: D:/FPGAProject/MC/MC/ROMS/Z80/Z80_BASIC_ROM.vhd Line: 60
 Info (12133): Instantiated megafunction "Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component" with the following parameter: File: D:/FPGAProject/MC/MC/ROMS/Z80/Z80_BASIC_ROM.vhd Line: 60
@@ -1004,7 +1008,7 @@ Info (12133): Instantiated megafunction "Z80_BASIC_ROM:rom1|altsyncram:altsyncra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_apq3.tdf
     Info (12023): Found entity 1: altsyncram_apq3 File: D:/FPGAProject/MC/MC/Microcomputer/db/altsyncram_apq3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_apq3" for hierarchy "Z80_BASIC_ROM:rom1|altsyncram:altsyncram_component|altsyncram_apq3:auto_generated" File: e:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "InternalRam4K" for hierarchy "InternalRam4K:ram1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 78
+Info (12128): Elaborating entity "InternalRam4K" for hierarchy "InternalRam4K:ram1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 81
 Info (12128): Elaborating entity "altsyncram" for hierarchy "InternalRam4K:ram1|altsyncram:altsyncram_component" File: D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd Line: 62
 Info (12130): Elaborated megafunction instantiation "InternalRam4K:ram1|altsyncram:altsyncram_component" File: D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd Line: 62
 Info (12133): Instantiated megafunction "InternalRam4K:ram1|altsyncram:altsyncram_component" with the following parameter: File: D:/FPGAProject/MC/MC/Microcomputer/InternalRam4K.vhd Line: 62
@@ -1061,9 +1065,11 @@ Info (12133): Instantiated megafunction "InternalRam4K:ram1|altsyncram:altsyncra
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_12q3.tdf
     Info (12023): Found entity 1: altsyncram_12q3 File: D:/FPGAProject/MC/MC/Microcomputer/db/altsyncram_12q3.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_12q3" for hierarchy "InternalRam4K:ram1|altsyncram:altsyncram_component|altsyncram_12q3:auto_generated" File: e:/altera_lite/25.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:io1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 88
-Info (12128): Elaborating entity "aaron" for hierarchy "aaron:io2" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 105
+Info (12128): Elaborating entity "bufferedUART" for hierarchy "bufferedUART:io1" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 91
+Info (12128): Elaborating entity "aaron" for hierarchy "aaron:io2" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 108
 Warning (10492): VHDL Process Statement warning at aaron.vhd(22): signal "reset_n" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/FPGAProject/MC/MC/Components/UART/aaron.vhd Line: 22
+Info (12128): Elaborating entity "PWM" for hierarchy "PWM:io3" File: D:/FPGAProject/MC/MC/Microcomputer/Microcomputer.vhd Line: 116
+Warning (10036): Verilog HDL or VHDL warning at PWM.vhd(25): object "SR" assigned a value but never read File: D:/FPGAProject/MC/MC/Components/PWM/PWM.vhd Line: 25
 Warning (276027): Inferred dual-clock RAM node "bufferedUART:io1|rxBuffer_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "bufferedUART:io1|rxBuffer_rtl_0" 
@@ -1105,15 +1111,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 2347 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2448 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 2311 logic cells
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 2404 logic cells
     Info (21064): Implemented 24 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 5 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 4979 megabytes
-    Info: Processing ended: Thu May 14 08:57:05 2026
+    Info: Processing ended: Thu May 14 18:41:04 2026
     Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:51
+    Info: Total CPU time (on all processors): 00:00:45
 
 

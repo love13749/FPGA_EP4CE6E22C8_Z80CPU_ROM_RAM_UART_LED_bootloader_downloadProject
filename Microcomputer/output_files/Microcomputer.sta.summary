@@ -3,160 +3,160 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'cpuClock'
-Slack : -13.465
-TNS   : -3555.916
+Slack : -14.109
+TNS   : -3649.602
 
 Type  : Slow 1200mV 85C Model Setup 'T80s:cpu1|IORQ_n'
-Slack : -4.598
-TNS   : -53.915
+Slack : -6.389
+TNS   : -79.963
 
 Type  : Slow 1200mV 85C Model Setup 'serialClkCount[15]'
-Slack : -4.230
-TNS   : -176.962
+Slack : -4.261
+TNS   : -182.939
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -2.475
-TNS   : -65.921
-
-Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -2.299
-TNS   : -8.181
+Slack : -3.260
+TNS   : -169.817
 
 Type  : Slow 1200mV 85C Model Hold 'T80s:cpu1|IORQ_n'
-Slack : -1.973
-TNS   : -25.866
+Slack : -2.344
+TNS   : -41.132
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -2.287
+TNS   : -11.312
 
 Type  : Slow 1200mV 85C Model Hold 'cpuClock'
-Slack : -1.960
-TNS   : -22.040
+Slack : -1.329
+TNS   : -7.956
 
 Type  : Slow 1200mV 85C Model Hold 'serialClkCount[15]'
-Slack : -0.448
-TNS   : -0.927
+Slack : 0.059
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'serialClkCount[15]'
-Slack : -3.596
-TNS   : -88.187
+Slack : -3.602
+TNS   : -88.728
 
 Type  : Slow 1200mV 85C Model Removal 'serialClkCount[15]'
-Slack : -0.283
-TNS   : -4.068
+Slack : 0.028
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -105.682
+TNS   : -154.753
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'T80s:cpu1|IORQ_n'
+Slack : -3.201
+TNS   : -122.067
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'serialClkCount[15]'
 Slack : -3.201
 TNS   : -83.953
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'T80s:cpu1|IORQ_n'
-Slack : -3.201
-TNS   : -53.808
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpuClock'
 Slack : -1.487
 TNS   : -514.502
 
 Type  : Slow 1200mV 0C Model Setup 'cpuClock'
-Slack : -12.544
-TNS   : -3325.590
+Slack : -13.255
+TNS   : -3424.696
 
 Type  : Slow 1200mV 0C Model Setup 'T80s:cpu1|IORQ_n'
-Slack : -4.159
-TNS   : -48.655
+Slack : -5.889
+TNS   : -74.666
 
 Type  : Slow 1200mV 0C Model Setup 'serialClkCount[15]'
-Slack : -3.907
-TNS   : -164.484
+Slack : -3.993
+TNS   : -171.789
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -2.168
-TNS   : -58.273
-
-Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -2.114
-TNS   : -7.608
+Slack : -3.082
+TNS   : -156.807
 
 Type  : Slow 1200mV 0C Model Hold 'T80s:cpu1|IORQ_n'
-Slack : -1.786
-TNS   : -26.036
+Slack : -2.430
+TNS   : -40.969
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -2.107
+TNS   : -9.842
 
 Type  : Slow 1200mV 0C Model Hold 'cpuClock'
-Slack : -1.753
-TNS   : -19.113
+Slack : -1.214
+TNS   : -6.980
 
 Type  : Slow 1200mV 0C Model Hold 'serialClkCount[15]'
-Slack : -0.401
-TNS   : -0.745
+Slack : 0.097
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'serialClkCount[15]'
-Slack : -3.330
-TNS   : -82.057
+Slack : -3.477
+TNS   : -85.908
 
 Type  : Slow 1200mV 0C Model Removal 'serialClkCount[15]'
-Slack : -0.235
-TNS   : -3.297
+Slack : 0.087
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -105.682
+TNS   : -154.753
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'T80s:cpu1|IORQ_n'
+Slack : -3.201
+TNS   : -116.175
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'serialClkCount[15]'
 Slack : -3.201
 TNS   : -83.953
 
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'T80s:cpu1|IORQ_n'
-Slack : -3.201
-TNS   : -57.064
-
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpuClock'
 Slack : -1.487
-TNS   : -514.502
+TNS   : -535.113
 
 Type  : Fast 1200mV 0C Model Setup 'cpuClock'
-Slack : -5.325
-TNS   : -1351.238
-
-Type  : Fast 1200mV 0C Model Setup 'serialClkCount[15]'
-Slack : -1.380
-TNS   : -50.176
+Slack : -5.598
+TNS   : -1417.632
 
 Type  : Fast 1200mV 0C Model Setup 'T80s:cpu1|IORQ_n'
-Slack : -1.239
-TNS   : -12.468
+Slack : -1.895
+TNS   : -22.077
+
+Type  : Fast 1200mV 0C Model Setup 'serialClkCount[15]'
+Slack : -1.187
+TNS   : -48.682
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -0.500
-TNS   : -6.757
+Slack : -0.885
+TNS   : -31.380
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.997
-TNS   : -3.771
-
-Type  : Fast 1200mV 0C Model Hold 'cpuClock'
-Slack : -0.919
-TNS   : -11.022
+Slack : -0.994
+TNS   : -6.517
 
 Type  : Fast 1200mV 0C Model Hold 'T80s:cpu1|IORQ_n'
-Slack : -0.586
-TNS   : -6.281
+Slack : -0.722
+TNS   : -11.240
+
+Type  : Fast 1200mV 0C Model Hold 'cpuClock'
+Slack : -0.654
+TNS   : -5.081
 
 Type  : Fast 1200mV 0C Model Hold 'serialClkCount[15]'
-Slack : -0.268
-TNS   : -0.748
+Slack : -0.098
+TNS   : -0.950
 
 Type  : Fast 1200mV 0C Model Recovery 'serialClkCount[15]'
-Slack : -1.239
-TNS   : -29.364
+Slack : -1.183
+TNS   : -28.073
 
 Type  : Fast 1200mV 0C Model Removal 'serialClkCount[15]'
-Slack : -0.200
-TNS   : -3.273
+Slack : -0.131
+TNS   : -1.079
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -63.949
+TNS   : -106.823
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpuClock'
 Slack : -1.000
@@ -168,6 +168,6 @@ TNS   : -53.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'T80s:cpu1|IORQ_n'
 Slack : -1.000
-TNS   : -35.000
+TNS   : -48.798
 
 ------------------------------------------------------------

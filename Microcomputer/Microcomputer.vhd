@@ -9,7 +9,8 @@ entity Microcomputer is
 		clk			: in std_logic;    -- 时钟引脚
 		rxd1			: in std_logic;    -- USART接收引脚
 		txd1			: out std_logic;   -- USART发送引脚
-		leds			: out std_logic_vector(7 downto 0) -- LED并行输出引脚
+		leds			: out std_logic_vector(7 downto 0); -- LED并行输出引脚
+		pwmout      : out std_logic_vector(7 downto 0) -- PWM并行输出引脚
 	);
 end Microcomputer;
 
@@ -25,7 +26,8 @@ architecture struct of Microcomputer is
 	signal internalRam1DataOut		: std_logic_vector(7 downto 0);  -- Z80CPU的控制信号RAM输出
 	signal internalRam2DataOut		: std_logic_vector(7 downto 0);  -- Z80CPU的控制信号第二个RAM输出
 	signal interface1DataOut		: std_logic_vector(7 downto 0);  -- Z80CPU的控制信号USART输出
-
+	signal interfacePwmDataOut    : std_logic_vector(7 downto 0);
+	
 	signal n_memWR						: std_logic :='1'; -- 内存写信号
 	signal n_memRD 					: std_logic :='1'; -- 内存读信号
 
@@ -43,6 +45,7 @@ architecture struct of Microcomputer is
 	signal n_basRomCS					: std_logic :='1';
 	signal n_interface1CS			: std_logic :='1';
 	signal n_aaronCS					: std_logic :='1';
+	signal n_pwmCS                : std_logic :='1'; -- PWM片选信号
 
 	signal serialClkCount			: std_logic_vector(15 downto 0);
 	signal cpuClkCount				: std_logic_vector(5 downto 0); 
@@ -110,6 +113,17 @@ dataOut => leds,
 reset_n => n_reset
 );
 
+io3 : entity work.PWM  -- PWM的表层接口
+port map(
+clk => clk,
+n_wr => n_pwmCS or n_ioWR,
+n_rd => n_pwmCS or n_ioRD,
+regSel => cpuAddress(1 downto 0),
+dataIn => cpuDataOut,
+dataOut => interfacePwmDataOut,
+pwm_out => pwmout
+);
+
 n_ioWR <= n_WR or n_IORQ;
 n_memWR <= n_WR or n_MREQ;
 n_ioRD <= n_RD or n_IORQ;
@@ -118,10 +132,12 @@ n_memRD <= n_RD or n_MREQ;
 n_basRomCS <= '0' when cpuAddress(15 downto 13) = "000" else '1'; --8K at bottom of memory
 n_interface1CS <= '0' when cpuAddress(7 downto 1) = "1000000" and (n_ioWR='0' or n_ioRD = '0') else '1'; -- 2 Bytes $80-$81
 n_aaronCS <= '0' when cpuAddress(7 downto 1) = "1001000" and (n_ioWR='0' or n_ioRD = '0') else '1'; -- 2 Bytes $90-$91
+n_pwmCS <= '0' when cpuAddress(7 downto 2) = "100001" and (n_ioWR='0' or n_ioRD = '0') else '1';  --4 Bytes $132 - $135
 n_internalRam1CS <= '0' when cpuAddress(15 downto 12) = "0010" else '1';
 
 cpuDataIn <=
 interface1DataOut when n_interface1CS = '0' else
+interfacePwmDataOut when n_pwmCS = '0' else
 basRomData when n_basRomCS = '0' else
 internalRam1DataOut when n_internalRam1CS= '0' else
 x"FF";

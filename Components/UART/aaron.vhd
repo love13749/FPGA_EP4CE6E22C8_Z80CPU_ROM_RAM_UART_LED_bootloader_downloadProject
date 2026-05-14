@@ -19,8 +19,8 @@ signal n_int_internal   : std_logic := '1';
 begin
 	process(n_wr)
 	begin
-		if reset_n = '0' then
-			dataOut(0) <= '0';
+		if reset_n = '0' then   --复位信号时
+			dataOut(0) <= '0';   --初始状态为01010101B
 			dataOut(1) <= '1';
 			dataOut(2) <= '0';
 			dataOut(3) <= '1';
@@ -28,8 +28,8 @@ begin
 			dataOut(5) <= '1';
 			dataOut(6) <= '0';
 			dataOut(7) <= '1';
-		elsif rising_edge(n_wr) then
-			dataOut <= dataIn;
+		elsif rising_edge(n_wr) then -- 写入LED灯控制信号
+			dataOut <= dataIn;        -- 输出数据信号
 		end if;
 	end process;
  end rtl;
