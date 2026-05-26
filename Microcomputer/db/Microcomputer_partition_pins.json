@@ -76,6 +76,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "clk_pwm",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

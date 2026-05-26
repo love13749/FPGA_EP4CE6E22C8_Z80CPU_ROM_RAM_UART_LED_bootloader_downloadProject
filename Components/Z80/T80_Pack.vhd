@@ -191,6 +191,7 @@ package T80_Pack is
 		Flag_Z : integer := 6;
 		Flag_S : integer := 7
 	);
+	
 	port(
 		Arith16		: in std_logic;
 		Z16			: in std_logic;

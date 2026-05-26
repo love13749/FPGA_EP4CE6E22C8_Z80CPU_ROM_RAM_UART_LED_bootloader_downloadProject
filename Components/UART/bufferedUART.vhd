@@ -25,9 +25,9 @@ entity bufferedUART is
 		clk     : in std_logic;   -- 时钟信号
 		n_wr    : in  std_logic;  -- 写入信号
 		n_rd    : in  std_logic;  -- 读取信号
-		regSel  : in  std_logic;  
-		dataIn  : in  std_logic_vector(7 downto 0);
-		dataOut : out std_logic_vector(7 downto 0);
+		regSel  : in  std_logic;  -- 片选寄存器地址线
+		dataIn  : in  std_logic_vector(7 downto 0); -- 数据输入
+		dataOut : out std_logic_vector(7 downto 0); -- 数据输出
 		n_int   : out std_logic;  -- 中断信号
 		rxClock : in  std_logic; -- 16 x baud rate
 		txClock : in  std_logic; -- 16 x baud rate
@@ -70,16 +70,16 @@ signal txState : serialStateType;
 
 signal reset : std_logic := '0';
 
-type rxBuffArray is array (0 to 15) of std_logic_vector(7 downto 0);
-signal rxBuffer : rxBuffArray;
+type rxBuffArray is array (0 to 15) of std_logic_vector(7 downto 0); -- 16字节的FIFO数据缓冲区
+signal rxBuffer : rxBuffArray;                                       -- 定义一个变量，类型为16字节FIFO数据缓冲区
 
-signal rxInPointer: integer range 0 to 63 :=0;
-signal rxReadPointer: integer range 0 to 63 :=0;
-signal rxBuffCount: integer range 0 to 63 :=0;
+signal rxInPointer: integer range 0 to 63 :=0; -- 指向下一个需要写入缓冲区的位置，类似于队列的队尾
+signal rxReadPointer: integer range 0 to 63 :=0; -- 指向下一个需要读取缓冲区数据的位置，类似于队列的队头
+signal rxBuffCount: integer range 0 to 63 :=0; -- 记录当前缓冲区的数据字节数，用于判断缓冲区空或者满
 
-signal rxFilter : integer range 0 to 50; 
+signal rxFilter : integer range 0 to 50; -- 滤波计数器，保证计数结束后执行，输入电平稳定，没有毛刺滤波
 
-signal rxdFiltered : std_logic := '1';
+signal rxdFiltered : std_logic := '1'; -- 要来存储滤波后的RXD串行信号
 
 begin
 	-- minimal 6850 compatibility

@@ -5,7 +5,7 @@ library ieee;
 
 entity PWM is
 	port(
-		clk     : in std_logic;                      -- 50MHz 主时钟
+		clk     : in std_logic;                      -- 27MHz 主时钟
 		n_wr    : in std_logic;                      -- I/O 写选通
 		n_rd    : in std_logic;                      -- I/O 读选通
 		regSel  : in std_logic_vector(1 downto 0);   -- 寄存器选择 (00=CTRL,01=PRD,10=CCR,11=CNT)
@@ -18,11 +18,11 @@ end PWM;
 
 architecture rtl of PWM is
     -- 寄存器定义
-    signal CTRL : std_logic_vector(7 downto 0) := (others => '0'); 
-    signal PRD  : std_logic_vector(7 downto 0) := (others => '0'); 
-    signal CCR  : std_logic_vector(7 downto 0) := (others => '0'); 
-    signal CNT  : std_logic_vector(7 downto 0) := (others => '0'); 
-    signal SR   : std_logic_vector(7 downto 0) := (others => '0'); 
+    signal CTRL : std_logic_vector(7 downto 0) := (others => '0');  -- 控制寄存器，IO地址为$84
+    signal PRD  : std_logic_vector(7 downto 0) := (others => '0');  -- 周期寄存器，IO地址为$85
+    signal CCR  : std_logic_vector(7 downto 0) := (others => '0');  -- 占空比寄存器，IO地址为$86
+    signal CNT  : std_logic_vector(7 downto 0) := (others => '0');  -- 计数寄存器，IO地址为$87
+    signal SR   : std_logic_vector(7 downto 0) := (others => '0');  -- 状态寄存器
     signal pwm_out_internal : std_logic_vector(7 downto 0) := (others => '0'); 
 
 begin
@@ -67,7 +67,7 @@ begin
             if CTRL(7) = '1' then
                 -- 软件复位：把计数器清零，PWM输出关闭
                 CNT <= (others => '0');
-                pwm_out_internal <= "11111111";
+                pwm_out_internal <= "00000000";
             elsif CTRL(0) = '1' then
                 -- 3. PWM 使能状态
                 if CNT = PRD then
@@ -78,18 +78,18 @@ begin
 
                 -- 4. 占空比比较逻辑
                 if CNT < CCR then
-                    pwm_out_internal <= "00000000";
-                else
                     pwm_out_internal <= "11111111";
+                else
+                    pwm_out_internal <= "00000000";
                 end if;
             else
                 -- 关闭状态：输出低电平
-                pwm_out_internal <= "11111111";
+                pwm_out_internal <= "00000000";
             end if;
         end if;
     end process;
 
     -- 极性选择
-    pwm_out <= pwm_out_internal when CTRL(1) = '0' else not pwm_out_internal;
+    pwm_out <= pwm_out_internal when CTRL(1) = '1' else not pwm_out_internal;
 
 end rtl;

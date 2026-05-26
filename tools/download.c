@@ -41,13 +41,13 @@ int send_project_bin()
 int main() 
 {
     // 1. 打开串口 COM4
-    hSerial = CreateFile("\\\\.\\COM4",
+    hSerial = CreateFile("\\\\.\\COM8",
                          GENERIC_READ | GENERIC_WRITE,
                          0, NULL, OPEN_EXISTING,
                          FILE_ATTRIBUTE_NORMAL, NULL);
     if (hSerial == INVALID_HANDLE_VALUE) 
     {
-        printf("Failed to open COM4!\n\n");
+        printf("Failed to open COM8!\n\n");
         return 1;
     }
 
@@ -91,7 +91,7 @@ int main()
         CloseHandle(hSerial);
         return 1;
     }
-    printf("Now monitoring COM4...\n\n");
+    printf("Now monitoring COM8...\n\n");
     printf("Press ESC to exit, Ctrl+D to re-download project.bin.\n\n");
 
     // 5. 获取控制台输入句柄

@@ -22,57 +22,58 @@ PWM_CNT     EQU $87      ; PWM 计数器端口
 ; ============================================================
     ORG $2000
 
-START:
+;程序入口点
+START: 
     ; --- 初始化栈指针 ---
-    LD SP, $2FFF
+    LD SP, $2FFF      ; 设置栈顶地址,堆栈段为$2F00-$2FFF
     
     ; --- 输出启动信息 ---
-    LD HL, MSG_START
-    CALL PRINT_STRING
+    LD HL, MSG_START  ; 传递字符串首地址
+    CALL PRINT_STRING ; 调用打印字符串子程序
     
     ; --- 主循环：LED流水灯 + 串口输出 ---
-    LD A, $01            ; 初始 LED 值 (bit0亮)
+    LD A, $01             ; 初始 LED 值 (bit0亮)
     LD B, 0FFH            ; 初始占空比为0%
 
 MAIN_LOOP:
     ; PWM输出
-    push AF
-    LD A, 00H
-    OUT (PWM_CTRL), A
-    LD A, 0FFH
-    OUT (PWM_PRD), A
-    LD A, B
-    OUT (PWM_CCR), A
-    LD A, 01H
-    OUT (PWM_CTRL), A
+    push AF               ; 保存AF寄存器
+    LD A, 00H             ; 00H为PWM关闭状态
+    OUT (PWM_CTRL), A     ; 关闭PWM输出
+    LD A, 0FFH            ; 设置PWM周期为255
+    OUT (PWM_PRD), A      ; 设置PWM周期端口
+    LD A, B               ; 当前占空比
+    OUT (PWM_CCR), A      ; 设置PWM占空比端口
+    LD A, 01H             ; 01H为PWM使能状态
+    OUT (PWM_CTRL), A     ; 使能PWM输出
 
     LD A, B
     CP 0FFH
     JR NZ, _B_INCREASE   ; 如果占空比未到最大值
-    LD B, 00            ; 重置占空比为0%
+    LD B, 00             ; 重置占空比为0%
 _B_INCREASE:
     INC B                ; 增加占空比
+    
+    CALL SEND_HEX        ; 发送当前占空比的十六进制值到串口
+    LD A, ' '            ; 发送一个空格分隔
+    CALL UART_PUTCHAR    ; 发送空格到串口
 
-    CALL SEND_HEX
-    LD A, ' '
-    CALL UART_PUTCHAR
-
-    pop AF
+    pop AF               ; 恢复AF寄存器
 
     ; 输出LED
     CPL                  ; A值每位取反
-    OUT (LED_PORT), A
+    OUT (LED_PORT), A    ; 输出到LED端口
     CPL                  ; 恢复A值
     
     ; 延时
-    CALL DELAY
+    CALL DELAY           ; 调用延时子程序
     
-    ; 左移一位（流水灯效果）
-    RLCA
+    ; 左移一位
+    RLCA                 ; A左移一位，bit0移到bit7
     CP $00               ; 如果移出所有位
-    JR NZ, MAIN_LOOP
+    JR NZ, MAIN_LOOP     ; 如果未移出所有位，继续循环
     LD A, $01            ; 重新从 bit0 开始
-    JR MAIN_LOOP
+    JR MAIN_LOOP         ; 继续循环
 
 ; ============================================================
 ; 发送一个字节的十六进制值到串口

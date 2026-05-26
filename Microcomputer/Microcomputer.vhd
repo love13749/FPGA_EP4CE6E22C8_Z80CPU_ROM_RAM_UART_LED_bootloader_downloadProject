@@ -7,6 +7,7 @@ entity Microcomputer is
 	port(
 		n_reset		: in std_logic;    -- 复位引脚
 		clk			: in std_logic;    -- 时钟引脚
+		clk_pwm     : in std_logic;    -- pwm时钟信号
 		rxd1			: in std_logic;    -- USART接收引脚
 		txd1			: out std_logic;   -- USART发送引脚
 		leds			: out std_logic_vector(7 downto 0); -- LED并行输出引脚
@@ -71,14 +72,14 @@ a => cpuAddress,
 di => cpuDataIn,
 do => cpuDataOut);
 
-rom1 : entity work.Z80_BASIC_ROM -- 8KB BASIC
+rom1 : entity work.Z80_BASIC_ROM -- 8KB ROM(Boot Load)
 port map(
 address => cpuAddress(12 downto 0),
 clock => clk,
 q => basRomData
 );
 
-ram1: entity work.InternalRam4K
+ram1: entity work.InternalRam4K -- 4KB RAM
 port map
 (
 address => cpuAddress(11 downto 0),
@@ -88,7 +89,7 @@ wren => not(n_memWR or n_internalRam1CS),
 q => internalRam1DataOut
 );
 
-io1 : entity work.bufferedUART
+io1 : entity work.bufferedUART -- 16B FIFO UART for cache of UART
 port map(
 clk => clk,
 n_wr => n_interface1CS or n_ioWR,
@@ -105,7 +106,7 @@ n_cts => '0',
 n_dcd => '0'
 );
 
-io2 : entity work.aaron
+io2 : entity work.aaron  -- 8 bit LED for proving the correct of BootLoad
 port map(
 n_wr => n_aaronCS or n_ioWR,
 dataIn => cpuDataOut,
@@ -113,9 +114,9 @@ dataOut => leds,
 reset_n => n_reset
 );
 
-io3 : entity work.PWM  -- PWM的表层接口
+io3 : entity work.PWM  -- PWM for proving the correct of IO
 port map(
-clk => clk,
+clk => clk_pwm,
 n_wr => n_pwmCS or n_ioWR,
 n_rd => n_pwmCS or n_ioRD,
 regSel => cpuAddress(1 downto 0),
